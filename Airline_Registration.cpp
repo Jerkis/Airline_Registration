@@ -3,7 +3,6 @@
 #include <vector>
 using namespace std;
 
-// Sample structure for Airline system (starter)
 struct Passenger {
     string name;
     int flightNumber;
