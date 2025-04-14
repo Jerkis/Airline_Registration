@@ -3,6 +3,7 @@
 #include <vector>
 using namespace std;
 
+// Sample structure for Airline system (starter)
 struct Passenger {
     string name;
     int flightNumber;
@@ -44,13 +45,25 @@ public:
         }
     }
 
+    void listPassengers() {
+        cout << "\n=== Registered Passengers ===" << endl;
+        if (passengers.empty()) {
+            cout << "None registered." << endl;
+        } else {
+            for (const auto& p : passengers) {
+                cout << "Name: " << p.name << ", Flight #: " << p.flightNumber << endl;
+            }
+        }
+    }
+
     void showMenu() {
         int choice;
         do {
             cout << "\n=== Airline Registration System ===" << endl;
             cout << "1. Add Passenger" << endl;
             cout << "2. Remove Passenger" << endl;
-            cout << "3. Exit" << endl;
+            cout << "3. List Passengers" << endl;
+            cout << "4. Exit" << endl;
             cout << "Choose an option: ";
             cin >> choice;
 
@@ -62,12 +75,15 @@ public:
                     removePassenger();
                     break;
                 case 3:
+                    listPassengers();
+                    break;
+                case 4:
                     cout << "Exiting system. Goodbye!\n";
                     break;
                 default:
                     cout << "Invalid option. Try again.\n";
             }
-        } while (choice != 3);
+        } while (choice != 4);
     }
 };
 
